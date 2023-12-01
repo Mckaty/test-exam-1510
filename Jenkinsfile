@@ -17,6 +17,16 @@ pipeline {
                 sh 'kubectl get deploy,pod -n dev-demo-ns'
             }
         }
+        stage('Scale POD') {
+            steps {
+                sh 'kubectl scale deployment -n dev-demo-ns demo-deploy --replicas=2'
+            }
+        }
+        stage('Check Scale POD') {
+            steps {
+                sh 'kubectl get deploy,pod -n dev-demo-ns'
+            }
+        }
     }
 }
 
