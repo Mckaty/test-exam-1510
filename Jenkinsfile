@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Deploy Demo App') {
             steps {
-                sh 'kubectl apply -f /var/lib/jenkins/demo-app/demo-deploy.yaml'
+                sh 'kubectl apply -f demo-deploy.yaml'
             }
         }
         stage('Get Deploy') {
@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Check Scale POD') {
             steps {
-                sh 'kubectl get deploy,pod -n dev-demo-ns'
+                sh 'kubectl get all -n dev-demo-ns'
             }
         }
     }
