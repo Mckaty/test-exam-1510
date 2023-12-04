@@ -4,9 +4,13 @@ pipeline {
     }
 
     stages {
-        stage('Hello') {
+        stage('Check Jenkins Slave UAT') {
             steps {
-                echo 'Hello World'
+                echo 'Hello Jenkins Slave UAT 01'
+                sh 'hostname'
+                sh 'ls -tlr'
+                sh 'pwd'
+                sh 'date'
             }
         }
         stage('Deploy Demo App') {
